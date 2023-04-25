@@ -1,0 +1,59 @@
+﻿@model CarRentalService.Models.LandingModel
+@{
+    ViewBag.Title = "Index";
+    Layout =  null;
+}
+
+@section styles{
+    <style>
+        .colorpicker {
+            z-index: 9999 !important;
+        }
+
+        .iti.iti--allow-dropdown {
+            width: 100%;
+        }
+    </style>
+}
+@section scripts{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            alert("Hello");
+        })
+    </script>
+}
+
+<section id="wrapper">
+    <div class="login-register">
+        <div class="login-box card">
+            <div class="card-body">
+                @using (Html.BeginForm("UserLogin", "Landing", FormMethod.Post, new { id = "LoginForm" }))
+                {
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            @Html.TextBoxFor(t => t.UserName, new { @class = "form-control", placeholder = "Username" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            @Html.PasswordFor(t => t.Password, new { @class = "form-control", placeholder = "Password" })
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center m-t-20">
+                        <div class="col-xs-12">                       
+                            <button type="submit" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light">
+                                Login
+                            </button>
+                            <p class="text-center">
+                                @*@Html.ActionLink("Forget Password?", "Index", new { controller = "UserRegister", url = Request.QueryString["url"] })*@
+                                <a href="/UserRegister/Index?url=@Request.QueryString["url"]">Sign UP</a>
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

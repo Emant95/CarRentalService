@@ -1,0 +1,43 @@
+﻿@model CarRentalService.Models.LandingModel
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+@using (Html.BeginForm("UserRegister", "UserRegister", FormMethod.Post, new { id = "SignUpForm" }))
+{
+    <div class="field-input mb-3">
+        <input type="text" class="input-text" placeholder="First Name" name="FirstName" value="" required>
+        @Html.ValidationMessage("FirstName", "", new { @class = "text-danger" })
+    </div>
+    <div class="field-input mb-3">
+        <input type="text" class="input-text" placeholder="Last name" name="LastName" value="" required>
+        @Html.ValidationMessage("LastName", "", new { @class = "text-danger" })
+    </div>
+    <div class="field-input mb-3">
+        <input type="text" class="input-text" placeholder="Phone No." name="Phone" id="Phone" value="" required>
+        <input type="hidden" name="Code" id="Code" data-fieldname="code" class="phoneCode" />
+        <input type="hidden" name="AlphaTwoCode" id="AlphaTwoCode" data-fieldname="alphatwocode" class="alphatwocode" />
+        <input type="hidden" name="DefaultCountryCode" id="DefaultCountryCode" value="" />
+        @Html.ValidationMessage("Phone", "", new { @class = "text-danger" })
+    </div>
+    <div class="field-input mb-3">
+        <input type="text" class="input-text" placeholder="Email" name="Email" value="" required>
+        @Html.ValidationMessage("Email", "", new { @class = "text-danger" })
+    </div>
+    <div class="field-input mb-3">
+        <input type="password" class="input-text" placeholder="Password" name="Password" id="Password" required>
+        @Html.ValidationMessage("Password", "", new { @class = "text-danger" })
+    </div>
+    <div class="field-input mb-3">
+        <input type="password" class="input-text" placeholder="Confirm Password" name="ConfirmPassword" id="ConfirmPassword" required>
+        @Html.ValidationMessage("ConfirmPassword", "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group text-center m-t-20">
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light">
+                Sign Up
+            </button>
+        </div>
+    </div>
+}
